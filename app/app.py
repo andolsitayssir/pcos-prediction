@@ -310,7 +310,7 @@ with card:
 
     # PAGE 1 — Symptoms
     elif st.session_state.page == 1:
-        st.markdown('<div class="card">', unsafe_allow_html=True)
+       
         st.subheader("2 — Visible symptoms")
         st.write("Answer Yes / No (all required)")
 
@@ -456,7 +456,7 @@ with card:
    
     # PAGE 4 — Result (auto-compute, no input echo)
     else:
-     st.markdown('<div class="card">', unsafe_allow_html=True)
+    
      st.subheader("Your result 💖")
      st.write("Here’s a gentle, supportive summary based on your answers.")
 
