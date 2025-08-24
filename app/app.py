@@ -363,7 +363,6 @@ with card:
 
     # PAGE 2 — Cycle
     elif st.session_state.page == 2:
-        st.markdown('<div class="card">', unsafe_allow_html=True)
         st.subheader("3 — Cycle and habits")
 
         _prefill_from_resp([
@@ -398,17 +397,16 @@ with card:
 
     # PAGE 3 — Measurements (Waist/Hip in cm, convert to inches; follicles optional)
     elif st.session_state.page == 3:
-        st.markdown('<div class="card">', unsafe_allow_html=True)
-        st.subheader("4 — Body measurements and exams")
+         st.subheader("4 — Body measurements and exams")
 
-        _prefill_from_resp([
+         _prefill_from_resp([
             ("waist_cm_txt", "Waist (cm)", ""),
             ("hip_cm_txt", "Hip (cm)", ""),
             ("fol_r_txt", "Follicle No. (R)", ""),
             ("fol_l_txt", "Follicle No. (L)", ""),
         ])
 
-        with st.form("form_page3", clear_on_submit=False):
+         with st.form("form_page3", clear_on_submit=False):
             c1, c2 = st.columns(2)
             with c1:
                 st.text_input("Waist (cm) *", key="waist_cm_txt", placeholder="e.g. 82")
@@ -424,7 +422,7 @@ with card:
             with c2b:
                 submit_next3 = st.form_submit_button("Next ➜")
        
-        if prev3 or submit_next3:
+         if prev3 or submit_next3:
             # Read cm inputs
             waist_cm_raw = (st.session_state.get("waist_cm_txt") or "").strip()
             hip_cm_raw = (st.session_state.get("hip_cm_txt") or "").strip()
@@ -443,9 +441,9 @@ with card:
             st.session_state.resp["Follicle No. (R)"] = _parse_optional_number(st.session_state.get("fol_r_txt"))
             st.session_state.resp["Follicle No. (L)"] = _parse_optional_number(st.session_state.get("fol_l_txt"))
 
-        if prev3:
+         if prev3:
             prev_page()
-        elif submit_next3:
+         elif submit_next3:
             # Only require waist/hip; follicles are optional
             required = ["Waist(inch)", "Hip(inch)"]
             if any(st.session_state.resp.get(k) is None for k in required):
@@ -453,12 +451,11 @@ with card:
             else:
                 next_page()
 
-        st.markdown("</div>", unsafe_allow_html=True)
+         st.markdown("</div>", unsafe_allow_html=True)
 
    
     # PAGE 4 — Result (auto-compute, no input echo)
     else:
-     st.markdown('<div class="card">', unsafe_allow_html=True)
      st.subheader("Your result 💖")
      st.write("Here’s a gentle, supportive summary based on your answers.")
 
