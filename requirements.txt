@@ -1,0 +1,14 @@
+streamlit
+scikit-learn
+numpy
+joblib
+matplotlib
+pandas
+seaborn
+imbalanced-learn
+openpyxl
+scipy
+fastapi
+
+
+#to download the requirements run : pip install -r requirements.txt

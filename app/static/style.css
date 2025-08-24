@@ -1,0 +1,147 @@
+/* Force LIGHT mode and friendly colors */
+html { color-scheme: light !important; }
+:root {
+  --bs-body-bg: #ffffff;
+  --bs-body-color: #333333;
+}
+
+/* Cute pink / white theme, Bootstrap compatible */
+body, .stApp {
+  background: linear-gradient(180deg, #fff8fb 0%, #fff0f6 100%) !important;
+  color: #333 !important;
+  font-family: "Nunito", "Segoe UI", "Arial", sans-serif;
+}
+.block-container { background: transparent !important; }
+
+/* Header card */
+.card {
+  background: #fff !important;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 12px 30px rgba(219, 39, 119, 0.10);
+  border: 2px solid #ffb6d5;
+  margin-bottom: 18px;
+}
+.header {
+  position: relative;          /* anchor for absolute icons */
+  overflow: hidden;            /* avoids any tiny “triangle” bleed */
+}
+.header::before,
+.header::after {               /* in case any theme adds a triangle pseudo-elt */
+  content: none !important;
+  display: none !important;
+  border: 0 !important;
+}
+
+h1, .stHeader {
+  color: #d6336c !important;
+  font-family: "Nunito", "Segoe UI", sans-serif;
+}
+a, p, label, .stMarkdown, .stText, .stSelectbox, .stRadio {
+  color: #333 !important;
+}
+
+/* Streamlit buttons (incl. form submit) — ensure pink, not dark */
+.stApp button:not(.btn-close),
+.stButton > button,
+.stForm button[type="submit"] {
+  background: linear-gradient(90deg,#ff90c1,#ffb6d5) !important;
+  color: #fff !important;
+  border: none !important;
+  padding: 10px 18px !important;
+  border-radius: 12px !important;
+  font-size: 1.05rem !important;
+  box-shadow: 0 2px 8px rgba(255,105,180,0.10) !important;
+  transition: transform 0.2s ease;
+}
+.stApp button:not(.btn-close):hover,
+.stButton > button:hover,
+.stForm button[type="submit"]:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg,#ffb6d5,#ff90c1) !important;
+}
+
+/* Keep the explicit class too (used in modal footer) */
+.btn-pink {
+  background: linear-gradient(90deg,#ff90c1,#ffb6d5) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 8px rgba(255,105,180,0.10) !important;
+}
+.btn-pink:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg,#ffb6d5,#ff90c1) !important;
+}
+
+/* Inputs */
+.stTextInput > div > div > input, .form-control {
+  border-radius: 10px !important;
+  border: 1.5px solid #ffb6d5 !important;
+  padding: 10px !important;
+  font-size: 1rem;
+  background: #fff !important; /* keep inputs white in light mode */
+  color: #333 !important;
+}
+select, .stSelectbox > div > div, .form-select {
+  border-radius: 10px !important;
+  border: 1.5px solid #ffb6d5 !important;
+  background: #fff !important;
+  color: #333 !important;
+  font-size: 1rem;
+}
+
+/* Floating icons — lock their placement */
+.floating-icon {
+  position: absolute; /* ensure they don’t drift */
+  animation: float 3s ease-in-out infinite;
+  z-index: 10;
+  pointer-events: none;
+}
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-18px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Cute modal */
+.cute-modal .modal-content {
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 8px 30px rgba(255,105,180,0.12);
+  border: 2px solid #ffb6d5;
+  color: #333;
+}
+.cute-modal .modal-header {
+  border-bottom: none;
+  background: linear-gradient(90deg,#ff90c1,#ffb6d5);
+  color: #5a1841;
+}
+.cute-modal .modal-footer {
+  border-top: none;
+  background: #fff;
+}
+
+/* Alerts */
+.alert-success {
+  background: #ffe0f0 !important;
+  color: #d6336c !important;
+  border: 1.5px solid #ffb6d5 !important;
+}
+.alert-info {
+  background: #f0f8ff !important;
+  color: #d6336c !important;
+  border: 1.5px solid #ffb6d5 !important;
+}
+
+/* If the OS/browser prefers dark, keep our light palette */
+@media (prefers-color-scheme: dark) {
+  html, body, .stApp {
+    background: linear-gradient(180deg, #fff8fb 0%, #fff0f6 100%) !important;
+    color: #333 !important;
+  }
+  .card, .modal-content, .stTextInput>div>div>input, .form-control, .form-select {
+    background: #fff !important;
+    color: #333 !important;
+  }
+}
